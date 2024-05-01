@@ -1,0 +1,7 @@
+#ifndef MAIN_H
+#define MAIN_H
+
+#define Stacks_VERSION_MAJOR @Stacks_VERSION_MAJOR@
+#define Stacks_VERSION_MINOR @Stacks_VERSION_MINOR@
+
+#endif
