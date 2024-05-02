@@ -4,6 +4,9 @@
 #include "domain/model/Employee.h"
 #include <ctime>
 #include "helpers/Utils.h"
+#include "infrastructure/ports/EmployeeFile.h"
+#include <list>
+#include <string>
 
 using namespace std;
 
@@ -40,6 +43,18 @@ int main(int argc, char *argv[]) {
         std::cerr << "Error: " << e.what() << std::endl;
     }
 
+    EmployeeFile empFile("employee.csv");
+    std::cout<<" Was opened? " <<empFile.openFile()<<std::endl;
+    for(auto item: empFile.readFile()) {
+        std::cout<<"Entry value: "<<item<<std::endl;
+    }
+
+    std::list<std::string>::iterator it;
+    auto empFileRead = empFile.readFile();
+
+    for (it = empFileRead.begin(); it != empFileRead.end(); it++) {
+        std::cout<<" entry : "<<*it<<std::endl;
+    }
 
     return 0;    
 }
